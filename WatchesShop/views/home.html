@@ -1,0 +1,34 @@
+<div class="loginStatus">
+    <span class="status">Hey {{username}}</span>
+    <label ng-show="login"> | </label>
+    <a ng-show="login" ng-click="mainCtrl.logout()" href="#!/home">Logout</a>
+</div>
+
+<h1>Top 5</h1>
+<div class="container">
+    <div class="child" ng-repeat="watch in mainCtrl.topFiveWatches">
+        <label>{{watch.WatchID}}</label>
+        <img src="{{watch.PicturePath}}">
+        <label>Price: <b>{{watch.Price | currency: "$"}}</b></label>
+        <p>ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+            Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+        <button class="addToCartButton" ng-show="login" ng-click="mainCtrl.addToCart(watch)">Add to Cart</button>
+    </div>
+</div>
+
+<h1 ng-show="login">Recomended</h1>
+<div class="container" ng-show="login">
+    <div class="child" ng-repeat="watch in mainCtrl.recomendedWatches">
+        <label>{{watch.WatchID}}</label>
+        <img src="{{watch.PicturePath}}">
+        <label>Price: <b>{{watch.Price | currency: "$"}}</b></label>
+        <p>ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper.
+            Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+        <button class="addToCartButton" ng-show="login" ng-click="mainCtrl.addToCart(watch)">Add to Cart</button>
+    </div>
+</div>
+
+
+<!--<button class="addToCartButton" ng-show="login" >Add to Cart</button>
+            <div class="desc"><p>ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p></div>
+        </div>-->

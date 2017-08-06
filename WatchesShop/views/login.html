@@ -1,0 +1,98 @@
+<h2>Login</h2>
+
+<div ng-controller="loginController as loginCtrl">
+
+    <form name="loginForm" ng-submit="loginCtrl.login()" role="form" novalidate>
+        Username :
+        <input type="text"
+               name="Username"
+               ng-model="loginCtrl.user.Username"
+               ng-minlength="3"
+               ng-maxlength="8"
+               ng-pattern="/^[a-zA-Z\s]*$/"
+               class="form-control"
+               placeholder="Your Username"
+               ng-required="true"
+               ng-change="loginCtrl.message=''">
+        <span ng-show="loginForm.Username.$dirty && (loginForm.Username.$error.minlength || loginForm.Username.$error.maxlength)
+                && (!loginForm.Username.$error.pattern)" class="help-block">Username must contain between 3 to 8 characters</span>
+        <span ng-show="loginForm.Username.$dirty && loginForm.Username.$error.required
+                && (!loginForm.Username.$error.pattern)" class="help-block">Field required</span>
+        <span ng-show="loginForm.Username.$dirty && loginForm.Username.$error.pattern" class="help-block">Must contain only letters</span>
+        <br>
+        Password :
+        <input type="password"
+               ng-required="true"
+               name="Password"
+               ng-model="loginCtrl.user.Password"
+               ng-minlength="5"
+               ng-maxlength="10"
+
+               class="form-control"
+               placeholder="Your Password"
+               ng-change="loginCtrl.message=''">
+        <span ng-show="loginForm.Password.$dirty && (loginForm.Password.$error.minlength || loginForm.Password.$error.maxlength)
+                && (!loginForm.Password.$error.pattern)" class="help-block">Password must contain between 5 to 10 characters</span>
+        <span ng-show="loginForm.Password.$dirty && loginForm.Password.$error.required
+                &&(!loginForm.Password.$error.pattern)" class="help-block">Password is required</span>
+        <span ng-show="loginForm.Password.$dirty && loginForm.Password.$error.pattern" class="help-block">Must contain letters and digits</span>
+        <br>
+        <br>
+
+        <div class="form-actions">
+            <button type="submit" ng-disabled="loginForm.$invalid" class="btn btn-primary">Login</button>
+        </div>
+        <br>
+        <div>
+            <br>
+            <input type="checkbox"><label class="light">Remember me</label>
+            <br>
+            <a href="" class="light" ng-click="loginCtrl.changeForgot()">Forgot your password?</a><br>
+        </div>
+        <br>
+        <br>
+
+
+        <span> {{loginCtrl.message}}</span>
+
+    </form>
+
+    <div ng-show="loginCtrl.forgot">
+        <form name="loginForm2">
+            Username :
+            <input type="text"
+                   ng-required="true"
+                   class="form-control"
+                   placeholder="Your username"
+            >
+
+            Question :
+            <select ng-show="loginCtrl.forgot" ng-options="question.desc for question in loginCtrl.questions track by category.name"
+                    ng-model="loginCtrl.question">
+            </select>
+            <br>
+            <br>
+
+            Answer :
+            <input type="text"
+                   ng-required="true"
+                   ng-show="loginCtrl.forgot"
+                   name="Password"
+                   ng-model="loginCtrl.answer"
+                   class="form-control"
+                   placeholder="Your Answer"
+            >
+
+            <br>
+            <br>
+            <button ng-click="getPassword(loginCtrl.question, loginCtrl.answer)"
+                    type="submit" ng-disabled="loginForm2.$invalid" class="btn btn-primary">Get password</button>
+            <br>
+
+
+        </form>
+    </div>
+    <label ng-show="loginCtrl.password">Your password is: 123456</label>
+
+
+</div>

@@ -1,0 +1,33 @@
+<div class="loginStatus">
+    <span class="status">Hey {{username}}</span>
+    <label ng-show="login"> | </label>
+    <a ng-show="login" ng-click="mainCtrl.logout()" href="#!/logout">Logout</a>
+</div>
+
+<h1>Products</h1>
+
+<div class="container" ng-controller="productsController as productsCtrl">
+    <br>
+    <table>
+        <thead>
+        <tr>
+            <th><a href="" ng-click="productsCtrl.fieldToOrderBy='WatchID'; productsCtrl.reverseSort = !productsCtrl.reverseSort">Product Name</a></th>
+            <th><a href="" ng-click="productsCtrl.fieldToOrderBy='CompanyID'; productsCtrl.reverseSort = !productsCtrl.reverseSort">Supplier Id</a></th>
+            <th><a href="" ng-click="productsCtrl.fieldToOrderBy='Price'; productsCtrl.reverseSort = !productsCtrl.reverseSort">Price</a></th>
+            <th><a href="" ng-click="productsCtrl.fieldToOrderBy='Description'; productsCtrl.reverseSort = !productsCtrl.reverseSort">Description</a></th>
+        </tr>
+        </thead>
+        <tr ng-repeat="watch in productsCtrl.watches | filter : productsCtrl.filterBy |
+                                                            orderBy:productsCtrl.fieldToOrderBy:productsCtrl.reverseSort">
+            <td>{{watch.WatchID}}</td>
+            <td>{{productsCtrl.companies[watch.CompanyID-4].CompanyName}}</td>
+            <td>{{watch.Price | currency: "$"}}</td>
+            <td>{{watch.Description}}</td>
+            <td><img src="{{watch.PicturePath}}" ></td>
+
+            <td><button ng-show="login" ng-click="mainCtrl.addToCart(watch)">Add to Cart</button> </td>
+            <!--<td><button ng-click="storeCtrl.removeCart(product)">Remove Cart</button> </td>-->
+
+        </tr>
+    </table>
+</div>

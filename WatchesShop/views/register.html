@@ -1,0 +1,178 @@
+<h2>Register</h2>
+
+<div ng-controller="registerController as registerCtrl">
+
+    <form name="registerForm" ng-submit="registerCtrl.register()" role="form" novalidate>
+        Username :
+        <input type="text"
+               name="Username"
+               ng-model="registerCtrl.user.Username"
+               ng-minlength="3"
+               ng-maxlength="8"
+               ng-pattern="/^[a-zA-Z\s]*$/"
+               class="form-control"
+               placeholder="Your Username"
+               ng-required="true"
+               ng-change="loginCtrl.message=''">
+        <span ng-show="registerForm.Username.$dirty && (registerForm.Username.$error.minlength || registerForm.Username.$error.maxlength)
+                && (!registerForm.Username.$error.pattern)" class="help-block">Username must contain between 3 to 8 characters</span>
+        <span ng-show="registerForm.Username.$dirty && registerForm.Username.$error.required
+                && (!registerForm.Username.$error.pattern)" class="help-block">Field required</span>
+        <span ng-show="registerForm.Username.$dirty && registerForm.Username.$error.pattern" class="help-block">Must contain only letters</span>
+        <br>
+
+        Password :
+        <input type="password"
+               ng-required="true"
+               name="Password"
+               ng-model="registerCtrl.user.Password"
+               ng-minlength="5"
+               ng-maxlength="10"
+
+               class="form-control"
+               placeholder="Your Password"
+               ng-change="loginCtrl.message=''">
+        <span ng-show="registerForm.Password.$dirty && (registerForm.Password.$error.minlength || registerForm.Password.$error.maxlength)
+                && (!registerForm.Password.$error.pattern)" class="help-block">Password must contain between 5 to 10 characters</span>
+        <span ng-show="registerForm.Password.$dirty && registerForm.Password.$error.required
+                &&(!registerForm.Password.$error.pattern)" class="help-block">Password is required</span>
+        <span ng-show="registerForm.Password.$dirty && registerForm.Password.$error.pattern" class="help-block">Must contain letters and digits</span>
+        <br>
+
+        First name :
+        <input type="text"
+               ng-required="true"
+               name="FirstName"
+               ng-model="registerCtrl.user.FirstName"
+               class="form-control"
+               placeholder="Your first Name"
+               ng-change="registerCtrl.message=''">
+        <span ng-show="registerForm.FirstName.$dirty && registerForm.FirstName.$error.required">First name is required</span>
+        <br>
+
+        Last name :
+        <input type="text"
+               ng-required="true"
+               name="LastName"
+               ng-model="registerCtrl.user.LastName"
+               class="form-control"
+               placeholder="Your last Name"
+               ng-change="registerCtrl.message=''">
+        <span ng-show="registerForm.LastName.$dirty && registerForm.LastName.$error.required">Last name is required</span>
+        <br>
+
+        Adress :
+        <input type="text"
+               ng-required="true"
+               name="Adress"
+               ng-model="registerCtrl.user.Adress"
+               class="form-control"
+               placeholder="Your adress"
+               ng-change="registerCtrl.message=''">
+        <span ng-show="registerForm.Adress.$dirty && registerForm.Adress.$error.required">Adress is required</span>
+        <br>
+
+        City :
+        <input type="text"
+               ng-required="true"
+               name="City"
+               ng-model="registerCtrl.user.City"
+               class="form-control"
+               placeholder="Your city"
+               ng-change="registerCtrl.message=''">
+        <span ng-show="registerForm.City.$dirty && registerForm.City.$error.required">City is required</span>
+        <br>
+
+        Country :
+        <input type="text"
+               ng-required="true"
+               name="Country"
+               ng-model="registerCtrl.user.Country"
+               class="form-control"
+               placeholder="Your country"
+               ng-change="registerCtrl.message=''">
+        <span ng-show="registerForm.Country.$dirty && registerForm.Country.$error.required">Country is required</span>
+        <br>
+
+        Phone number  :
+        <input type="text"
+               ng-required="true"
+               name="Phone"
+               ng-model="registerCtrl.user.Phone"
+               class="form-control"
+               placeholder="Your phone number"
+               ng-change="registerCtrl.message=''">
+        <span ng-show="registerForm.Phone.$dirty && registerForm.Phone.$error.required">Phone number is required</span>
+        <br>
+
+        Cell phone number:
+        <input type="text"
+               ng-required="true"
+               name="Cellular"
+               ng-model="registerCtrl.user.Cellular"
+               class="form-control"
+               placeholder="Your cell phone number"
+               ng-change="registerCtrl.message=''">
+        <span ng-show="registerForm.Cellular.$dirty && registerForm.Cellular.$error.required">Cell phone number is required</span>
+        <br>
+
+        Email :
+        <input type="text"
+               ng-required="true"
+               name="Mail"
+               ng-model="registerCtrl.user.Mail"
+               class="form-control"
+               placeholder="Your email"
+               ng-change="registerCtrl.message=''">
+        <span ng-show="registerForm.Mail.$dirty && registerForm.Mail.$error.required">Email is required</span>
+        <br>
+
+        Category :
+        <select ng-options="category.name for category in registerCtrl.categories track by category.id"
+                    ng-model="registerCtrl.category">
+        </select>
+        <br>
+
+        Credit card number :
+        <input type="text"
+               ng-required="true"
+               name="Mail"
+               ng-model="registerCtrl.user.CreditCardNumber"
+               class="form-control"
+               placeholder="Your credit card number"
+               ng-change="registerCtrl.message=''">
+        <span ng-show="registerForm.CreditCardNumber.$dirty && registerForm.CreditCardNumber.$error.required">credit card number is required</span>
+        <br>
+
+        Privacy question :
+        <input type="text"
+               ng-required="true"
+               name="Question"
+               ng-model="registerCtrl.user.Question"
+               class="form-control"
+               placeholder="Your privacy question"
+               ng-change="registerCtrl.message=''">
+        <span ng-show="registerForm.Question.$dirty && registerForm.Question.$error.required">Privacy question is required</span>
+        <br>
+
+        Answer :
+        <input type="text"
+               ng-required="true"
+               name="Answer"
+               ng-model="registerCtrl.user.Answer"
+               class="form-control"
+               placeholder="Your answer to privacy question"
+               ng-change="registerCtrl.message=''">
+        <span ng-show="registerForm.Answer.$dirty && registerForm.Answer.$error.required">answer is required</span>
+        <br>
+
+        <br>
+        <div class="form-actions">
+            <button type="submit" ng-disabled="registerForm.$invalid" class="btn btn-primary">Register</button>
+        </div>
+
+        <span> {{registerCtrl.message}}</span>
+
+    </form>
+
+</div>

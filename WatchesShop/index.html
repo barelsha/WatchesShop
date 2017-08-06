@@ -1,0 +1,75 @@
+<!doctype html>
+<html ng-app="myApp">
+
+    <head>
+        <link type="text/css" rel="stylesheet" href="style.css">
+        <title>WatchMe</title>
+    </head>
+
+    <body ng-controller="mainController as mainCtrl">
+        <div id="menubar">
+            <ul>
+                <li class='active'><a href='#!/home'>Home</a></li>
+                <li><a href="#!/products">Products</a></li>
+
+                <li ng-show="!login"><a href="#!/login">Login</a></li>
+                <li ng-show="!login"><a href="#!/register">Register</a></li>
+                <li><a href="#!/about">About</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <ng-view>
+            </ng-view>
+
+            <div class="cart" ng-show="login">
+                <h1>Cart</h1>
+                <div class="cartDetails">
+                    <table>
+                        <thead>
+                        <tr>
+                            <th><b>Watch id</b></th>
+                            <th><b>Quantity</b></th>
+                            <th><b>Unit price</b></th>
+                        </tr>
+                        </thead>
+                        <tr ng-repeat="watch in mainCtrl.cart">
+                            <td>{{watch.itemID}}</td>
+                            <td>{{watch.quantity}}</td>
+                            <td>{{watch.theItem.Price}}</td>
+                            <td><img src="{{watch.theItem.PicturePath}}"></td>
+                            <td><button ng-click="mainCtrl.removeFromCart(watch)">X</button> </td>
+                        </tr>
+                        <tr>
+                            <td><b>Total</b></td>
+                            <td><b>{{mainCtrl.totalItems}}</b></td>
+                            <td><b>{{mainCtrl.totalPrice}}</b></td>
+                            <td ng-show="mainCtrl.totalPrice > 0"><b><button>Buy</button></b></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <script src="angular/angular.min.js"></script>
+        <script src="angular/angular-route.min.js"></script>
+        <script src="angular/angular-local-storage.min.js"></script>
+
+        <script src="app.js"> </script>
+
+        <script src="services/restService.js"> </script>
+        <script src="services/cartService.js"> </script>
+
+        <script src="controllers/loginController.js"></script>
+        <script src="controllers/registerController.js"></script>
+        <script src="controllers/productsController.js"></script>
+
+        <script src="models/UserModel.js"></script>
+        <script src="models/WatchModel.js"></script>
+
+        <script src="services/cookiesService.js"></script>
+
+
+    </body>
+
+<html>

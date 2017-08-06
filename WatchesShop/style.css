@@ -1,0 +1,238 @@
+@import url(http://fonts.googleapis.com/css?family=Raleway);
+#menubar,
+#menubar ul,
+#menubar ul li,
+#menubar ul li a {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    list-style: none;
+    line-height: 1;
+    display: block;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+#menubar:after,
+#menubar > ul:after {
+    content: ".";
+    display: block;
+    clear: both;
+    visibility: hidden;
+    line-height: 0;
+    height: 0;
+}
+#menubar {
+    width: auto;
+    border-bottom: 3px solid #47c9af;
+    font-family: Raleway, sans-serif;
+    line-height: 1;
+}
+#menubar ul {
+    background: #ffffff;
+}
+#menubar > ul > li {
+    float: left;
+}
+#menubar.align-center > ul {
+    font-size: 0;
+    text-align: center;
+}
+#menubar.align-center > ul > li {
+    display: inline-block;
+    float: none;
+}
+#menubar.align-right > ul > li {
+    float: right;
+}
+#menubar.align-right > ul > li > a {
+    margin-right: 0;
+    margin-left: -4px;
+}
+#menubar > ul > li > a {
+    z-index: 2;
+    padding: 18px 25px 12px 25px;
+    font-size: 15px;
+    font-weight: 400;
+    text-decoration: none;
+    color: #444444;
+    -webkit-transition: all .2s ease;
+    -moz-transition: all .2s ease;
+    -ms-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+    margin-right: -4px;
+}
+#menubar > ul > li.active > a,
+#menubar > ul > li:hover > a,
+#menubar > ul > li > a:hover {
+    color: #ffffff;
+}
+#menubar > ul > li > a:after {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: -1;
+    width: 100%;
+    height: 120%;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    content: "";
+    -webkit-transition: all .2s ease;
+    -o-transition: all .2s ease;
+    transition: all .2s ease;
+    -webkit-transform: perspective(5px) rotateX(2deg);
+    -webkit-transform-origin: bottom;
+    -moz-transform: perspective(5px) rotateX(2deg);
+    -moz-transform-origin: bottom;
+    transform: perspective(5px) rotateX(2deg);
+    transform-origin: bottom;
+}
+#menubar > ul > li.active > a:after,
+#menubar > ul > li:hover > a:after,
+#menubar > ul > li > a:hover:after {
+    background: #47c9af;
+}
+
+span.status {
+    text-align: left;
+    width: 100%;
+    height: auto;
+    font-family: Raleway, sans-serif;
+}
+
+.container {
+    font-family: Raleway, sans-serif;
+    border: solid;
+    margin-top: 20px;
+    margin-right: 5px;
+    margin-left: 5px;
+    overflow: hidden;
+    width: 60%;
+    height: 100%;
+}
+
+
+
+.child {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    float: left;
+    width: 200px;
+    height: auto;
+}
+
+img {
+    position: relative;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+form {
+    max-width: 300px;
+    margin: 10px auto;
+    padding: 10px 20px;
+    background: #f4f7f8;
+    border-radius: 8px;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"],
+textarea,
+select {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    font-size: 16px;
+    height: auto;
+    margin-top: 5px;
+
+    outline: 0;
+    padding: 15px;
+    width: 90%;
+    background-color: #e8eeef;
+    color: #8a97a0;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03) inset;
+    margin-bottom: 5px;
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+    margin: 0 4px 8px 0;
+}
+
+button{
+    font-family: Raleway, sans-serif;
+}
+h1{
+    font-family: Raleway, sans-serif;
+    text-align: center;
+    width: 60%;
+}
+
+.loginStatus{
+    margin-top: 10px;
+}
+
+a{
+    font-family: Raleway, sans-serif;
+}
+
+body{
+    font-family: Raleway, sans-serif;
+}
+
+.cart{
+    position: fixed;
+
+    margin-right: 5px;
+    margin-left: 5px;
+    right: 0px;
+    top:86px;
+    width: 35%;
+    height:auto;
+}
+
+.cartDetails{
+    overflow: auto;
+    border-style: solid;
+    height:350px;
+}
+
+
+table {
+    margin: 0 auto;
+    table-layout:fixed;
+    width: 100%;
+
+    padding:15px 15px 15px 15px;
+
+}
+
+td{
+    padding:0 15px 0 15px;
+    text-align: center;
+    width: 50%;
+}
+
+h2{
+    font-family: Raleway, sans-serif;
+    text-align: center;
+}
+
+.pAbout{
+
+    width: 300px;
+    margin: 0 auto;
+}
